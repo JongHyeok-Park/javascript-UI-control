@@ -22,6 +22,7 @@
                 <div class="my-3">
                     <input type="text" class="form-control" id="name">
                 </div>
+                <span id="len-check" class="len-alert">3글자 이상 써라</span>
                 <div class="my-3">
                     <input type="password" class="form-control" id="pw">
                 </div>
@@ -34,12 +35,20 @@
     <script>
         // 전송버튼 누르면 input에 입력한 값이 공백이면 알림창 띄우기
         $('form').on('submit', function (e) {
-            if (document.getElementById('name').value == '') {
+            if ($('#name').val() == '') {
                 alert('새끼... 기열!');
                 e.preventDefault();
-            } else if (document.getElementById('pw').value == '') {
+            } else if ($('#pw').val() == '') {
                 alert('새끼... 비번은? 기열!!!!!');
                 e.preventDefault();
+            }
+        })
+
+        // name에 입력한 값 길이 검사
+        $('#name').on('change', function () {
+            if ($('#name').val().length < 3) {
+                console.log('바뀜');
+                $('#len-check').css('display', 'block');
             }
         })
 

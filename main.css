@@ -38,3 +38,8 @@
     visibility: visible;
     height: 220px;
 }
+
+.main-bg {
+    padding: 100px 20px;
+    background: lightgray;
+}

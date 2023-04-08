@@ -18,7 +18,16 @@
     <div class="black-bg">
         <div class="white-bg">
             <h4>로그인하세요</h4>
-            <button class="btn btn-danger" id="close">닫기</button>
+            <form action="success.html">
+                <div class="my-3">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="my-3">
+                    <input type="password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form>
         </div>
     </div>
 
@@ -39,9 +48,10 @@
         <li class="list-group-item">And a fifth one</li>
     </ul>
 
-    <button id="login">로그인</button>
-
-    <p>테스트 문장</p>
+    <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
 
     <script>
         $('#login').on('click', function () {

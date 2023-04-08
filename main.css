@@ -8,7 +8,7 @@
     visibility: hidden;
     height: 0;
     overflow: hidden;
-    transition: all 1s;
+    transition: all 0.8s;
 }
 
 .black-bg {
@@ -20,7 +20,7 @@
     padding: 30px;
     visibility: hidden;
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .white-bg {
@@ -36,7 +36,7 @@
 
 .show-list {
     visibility: visible;
-    height: 220px;
+    height: 205px;
 }
 
 .main-bg {

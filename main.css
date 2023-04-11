@@ -8,7 +8,7 @@
     visibility: hidden;
     height: 0;
     overflow: hidden;
-    transition: all 0.8s;
+    transition: all 0.6s;
 }
 
 .black-bg {
@@ -48,4 +48,53 @@
 .show {
     visibility: visible;
     opacity: 1;
+}
+
+.my-container {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.slide-container {
+    width: 300%;
+    transition: all 0.5s;
+}
+
+.slide-box {
+    width: 33.33%;
+    float: left;
+}
+
+.slide-box img {
+    width: 100%;
+}
+
+.alert-container {
+    position: fixed;
+    top: 0%;
+    z-index: 10;
+    width: 100%;
+}
+
+.alert {
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.slide-button-container {
+    text-align: center;
+    margin: 10px;
+}
+
+.slide-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: chocolate;
+    color: white;
+    font-weight: 700;
+    margin-right: 5px;
+    margin-left: 5px;
 }

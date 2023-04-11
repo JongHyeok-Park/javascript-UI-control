@@ -14,10 +14,16 @@
 </head>
 
 <body>
+    <div class="alert-container">
+        <div class="alert alert-danger">
+            <span id="count">5</span>초 안에 푸쉬업 안 하면 기합!
+        </div>
+    </div>
+
     <div class="black-bg">
         <div class="white-bg">
             <h4>로그인하세요</h4>
-            <form action="success.html">
+            <form action="">
                 <div class="my-3">
                     <input type="text" class="form-control" id="name">
                 </div>
@@ -33,7 +39,7 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand">Navbar</span>
+            <span class="navbar-brand" style="font-weight: 700;">종혁놀이터</span>
             <span class="badge bg-dark p-2">Dark 🔄️</span>
             <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-icon"></span>
@@ -54,12 +60,28 @@
         <button id="login" class="btn btn-danger">로그인</button>
     </div>
 
-
-
-    <div class="alert alert-danger">
-        <span id="count">5</span>초 안에 푸쉬업 안 하면 기합!
+    <div class="my-container" style="overflow: hidden;">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="assets/car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="assets/car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="assets/car3.png" alt="">
+            </div>
+            <div style="clear: both;"></div>
+        </div>
     </div>
 
+    <div class="slide-button-container">
+        <button class="slide-1 slide-button">1</button>
+        <button class="slide-2 slide-button">2</button>
+        <button class="slide-3 slide-button">3</button>
+        <button class="before-slide slide-button">이전</button>
+        <button class="next-slide slide-button">다음</button>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -67,77 +89,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-
-    <script>
-        // 모달창 내용 start
-        // 전송버튼 누르면 input에 입력한 값이 공백이면 알림창 띄우기
-        $('form').on('submit', function (e) {
-            var name = $('#name').val();
-            var password = $('#pw').val();
-            if (name == '') {
-                alert('새끼... 기열!');
-                e.preventDefault();
-            } else if (/[A-Z]/.test(name)) {
-                alert('대문자 금지!!');
-                e.preventDefault();
-            } else if (password == '') {
-                alert('새끼... 비번은? 기열!!!!!');
-                e.preventDefault();
-            }
-        })
-
-        // name에 입력한 값 길이 검사
-        $('#name').on('input', function () {
-            var name = $('#name').val();
-            if (name.length < 3) {
-                console.log('바뀜');
-                $('#len-check').css('display', 'block');
-            } else {
-                $('#len-check').css('display', 'none');
-            }
-        })
-
-        // 모달창 내용 end
-
-
-        $('.badge').on('click', function () {
-            if ($('.badge').html() == 'Dark 🔄️') {
-                $('.badge').html('Light 🔄️');
-            } else {
-                $('.badge').html('Dark 🔄️');
-            }
-        })
-
-        $('#login').on('click', function () {
-            $('.black-bg').addClass('show');
-        })
-
-        $('#close').on('click', function () {
-            $('.black-bg').removeClass('show');
-        })
-
-        $('.navbar-toggler').on('click', function () {
-            if ($('#test1').hasClass('show-list')) {
-                $('#test1').removeClass('show-list');
-            } else {
-                $('#test1').addClass('show-list');
-            }
-        })
-
-        var count = 5
-        setInterval(timer, 1000)
-
-        function timer() {
-            count -= 1;
-            $('#count').html(count);
-            if (count == 0) {
-                $('.alert').fadeOut();
-                clearInterval(this);
-            }
-        }
-
-    </script>
-
+    <script src="myscript.js"></script>
 
 </body>
 

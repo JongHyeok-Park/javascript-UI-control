@@ -4,11 +4,22 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.navbar {
+    width: 100%;
+    z-index: 4;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    transition: all 1s;
+}
+
 .list-group {
     visibility: hidden;
     height: 0;
     overflow: hidden;
     transition: all 0.6s;
+    width: 100%;
 }
 
 .black-bg {
@@ -78,9 +89,7 @@
 }
 
 .alert {
-    width: 95%;
-    margin: auto;
-    margin-top: 5px;
+    margin: 10px;
 }
 
 .slide-button-container {
@@ -97,4 +106,16 @@
     font-weight: 700;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+.scroll-container {
+    background-color: antiquewhite;
+    margin: auto;
+    text-align: center;
+}
+
+.scroll-line {
+    height: 0.5px;
+    background-color: black;
+    transition: all 0.1s;
 }

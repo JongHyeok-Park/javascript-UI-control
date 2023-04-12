@@ -31,6 +31,43 @@ $('#name').on('input', function () {
 /////// 로그인창 내용 end //////
 //////////////////////////////
 
+const 화면높이 = document.querySelector('html').scrollHeight - document.querySelector('html').clientHeight - 70;
+
+
+
+$(window).on('scroll', function () {
+    let 현재높이 = $('html').scrollTop();
+    let line = 현재높이 / 화면높이 * 100;
+    $('.scroll-line').css('width', line + '%')
+    if ($(window).scrollTop()) {
+        $('.navbar').css('position', 'fixed');
+    }
+    else {
+        $('.navbar').css('position', 'relative');
+    }
+})
+
+$(window).on('scroll', function () {
+    if ($(window).scrollTop() > 100) {
+        $('.navbar-brand').css('font-size', '15px');
+    } else {
+        $('.navbar-brand').css('font-size', '25px');
+    }
+})
+let 작은화면높이 = document.getElementsByClassName('lorem')[0].clientHeight;
+let 높이 = document.getElementsByClassName('lorem')[0].scrollHeight - 작은화면높이;
+$('#scroll-height-indicator').html(높이);
+$('.lorem').on('scroll', function () {
+
+    let 스크롤양 = $('.lorem').scrollTop();
+    $('#scroll-indicator').html(스크롤양.toFixed(2));
+    if ($('.lorem').scrollTop() + 작은화면높이 > document.getElementsByClassName('lorem')[0].scrollHeight - 10) {
+        $('.lorem').css('background-color', 'red');
+    } else {
+        $('.lorem').css('background-color', 'white');
+    }
+})
+
 $('.badge').on('click', function () {
     if ($('.badge').html() == 'Dark 🔄️') {
         $('.badge').html('Light 🔄️');
@@ -56,7 +93,7 @@ $('.navbar-toggler').on('click', function () {
 })
 
 var count = 5
-setInterval(timer, 1000)
+setInterval(timer, 300)
 
 function timer() {
     count -= 1;
@@ -69,20 +106,13 @@ function timer() {
 
 let now_slide = 0;
 
-$('.slide-1').on('click', function () {
-    $('.slide-container').css('transform', 'translateX(0)');
-    now_slide = 0;
-})
-
-$('.slide-2').on('click', function () {
-    $('.slide-container').css('transform', 'translateX(-33.33%)');
-    now_slide = 1;
-})
-
-$('.slide-3').on('click', function () {
-    $('.slide-container').css('transform', 'translateX(-66.66%)');
-    now_slide = 2;
-})
+const 개수 = document.querySelectorAll('.slide-direct').length;
+for (let i = 0; i < 개수; i++) {
+    $('.slide-direct').eq(i).on('click', function () {
+        $('.slide-container').css('transform', 'translateX(' + (i * (-33.33)) + '%)');
+        now_slide = i;
+    })
+}
 
 $('.next-slide').on('click', function () {
     if (now_slide >= 2)

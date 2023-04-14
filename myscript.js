@@ -14,6 +14,9 @@ $('form').on('submit', function (e) {
     } else if (password == '') {
         alert('새끼... 비번은? 기열!!!!!');
         e.preventDefault();
+    } else {
+        alert('안 해줌 ㅋ');
+        e.preventDefault();
     }
 })
 
@@ -27,13 +30,27 @@ $('#name').on('input', function () {
         $('#len-check').css('display', 'none');
     }
 })
+
+$('#login').on('click', function () {
+    $('.black-bg').addClass('show');
+})
+
+$('#close').on('click', function () {
+    $('.black-bg').removeClass('show');
+})
+
+$('.black-bg').on('click', function (e) {
+    if (e.target == document.querySelector('.black-bg')) {
+        $('.black-bg').removeClass('show');
+    }
+
+})
 //////////////////////////////
 /////// 로그인창 내용 end //////
 //////////////////////////////
 
-const 화면높이 = document.querySelector('html').scrollHeight - document.querySelector('html').clientHeight - 70;
 
-
+const 화면높이 = document.querySelector('html').scrollHeight - document.querySelector('html').clientHeight;
 
 $(window).on('scroll', function () {
     let 현재높이 = $('html').scrollTop();
@@ -54,6 +71,7 @@ $(window).on('scroll', function () {
         $('.navbar-brand').css('font-size', '25px');
     }
 })
+
 let 작은화면높이 = document.getElementsByClassName('lorem')[0].clientHeight;
 let 높이 = document.getElementsByClassName('lorem')[0].scrollHeight - 작은화면높이;
 $('#scroll-height-indicator').html(높이);
@@ -74,14 +92,6 @@ $('.badge').on('click', function () {
     } else {
         $('.badge').html('Dark 🔄️');
     }
-})
-
-$('#login').on('click', function () {
-    $('.black-bg').addClass('show');
-})
-
-$('#close').on('click', function () {
-    $('.black-bg').removeClass('show');
 })
 
 $('.navbar-toggler').on('click', function () {

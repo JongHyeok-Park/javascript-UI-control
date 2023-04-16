@@ -18,3 +18,9 @@ $('.list').click(function (e) {
 //         openTabs(i);
 //     })
 // }
+
+var car = ['소나타', 50000, 'white'];
+var car2 = { name: '소나타', price: [50000, 3000, 4000], color: 'white' };
+
+$('#car-name').html(car2.name);
+$('#car-price').html(car2.price[0]);

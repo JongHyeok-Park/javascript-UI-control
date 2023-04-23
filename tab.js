@@ -24,3 +24,43 @@ var car2 = { name: '소나타', price: [50000, 3000, 4000], color: 'white' };
 
 $('#car-name').html(car2.name);
 $('#car-price').html(car2.price[0]);
+
+var shirts = [95, 100, 105];
+var pants = [28, 30, 32, 34];
+
+$('#option').on('input', function (e) {
+    if (this.value == '셔츠') {
+        $('#size').removeClass('form-hide');
+        let target = document.querySelector('#size');
+        target.innerHTML = '';
+        shirts.forEach((data) => {
+            $(target).append(`<option>${data}</option>`);
+        });
+    } else if (this.value == '바지') {
+        $('#size').removeClass('form-hide');
+        var target = document.querySelector('#size');
+        target.innerHTML = '';
+        pants.forEach((data) => {
+            // $(target).append(`<option>${data}</option>`);
+            target.insertAdjacentHTML('beforeend', `<option>${data}</option>`);
+            // 밑에 방법으로는 왜인지 안됨.
+            // var a = document.createElement('option').innerHTML = data;
+            // target.appendChild(a);
+        });
+    }
+    else {
+        $('#size').addClass('form-hide');
+    }
+})
+
+
+///// HTML신규 삽입 하는 법 ////////
+
+// var a = document.createElement('p');
+// a.innerHTML = '안녕'
+// a.classList.add('container');
+// document.querySelector('#test').appendChild(a);
+
+// var 템플릿 = '<p>안녕</p>';
+// document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿);
+// $('#test').append(템플릿);

@@ -14,8 +14,22 @@
 </head>
 
 <body>
-
     <div class="container mt-5">
+        <select id="sortRule">
+            <option selected disabled hidden>정렬</option>
+            <option>가격순 정렬</option>
+            <option>이름순 정렬</option>
+        </select>
+
+        <div style="float: right;">
+            <span>가격</span>
+            <input type="text" id="price">
+            <span>원 이하 </span>
+            <button id="priceFilter" class="btn btn-primary">필터</button>
+        </div>
+    </div>
+
+    <div class="container mt-3">
         <div class="row">
 
             <!-- <div class="col-sm-4">
@@ -28,7 +42,7 @@
     </div>
 
     <div class="container">
-        <button class="btn btn-danger mb-5">더보기</button>
+        <button id="more" class="btn btn-danger mb-5">더보기</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"

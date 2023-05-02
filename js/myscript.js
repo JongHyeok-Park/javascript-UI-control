@@ -119,6 +119,7 @@ let now_slide = 0;
 const 개수 = document.querySelectorAll('.slide-direct').length;
 for (let i = 0; i < 개수; i++) {
     $('.slide-direct').eq(i).on('click', function () {
+        $('.slide-container').css('transition', '0.5s all');
         $('.slide-container').css('transform', 'translateX(' + (i * (-33.33)) + '%)');
         now_slide = i;
     })
@@ -127,6 +128,7 @@ for (let i = 0; i < 개수; i++) {
 $('.next-slide').on('click', function () {
     if (now_slide >= 2)
         now_slide = -1;
+    $('.slide-container').css('transition', '0.5s all');
     $('.slide-container').css('transform', 'translateX(-' + ((now_slide + 1) * 33.33) + '%)');
     now_slide += 1;
 })
@@ -134,6 +136,50 @@ $('.next-slide').on('click', function () {
 $('.before-slide').on('click', function () {
     if (now_slide <= 0)
         now_slide = 3;
+    $('.slide-container').css('transition', '0.5s all');
     $('.slide-container').css('transform', 'translateX(-' + ((now_slide - 1) * 33.33) + '%)');
     now_slide -= 1;
 })
+
+
+let downFlag = false;
+let initial;
+
+$('.slide-container').on('mousedown', function (e) {
+    $('.slide-container').css('transition', 'none');
+    initial = e.clientX;
+    downFlag = true;
+})
+
+
+$('.slide-container').on('mousemove', function (e) {
+    if (downFlag) {
+        let range = e.clientX - initial;
+        $('.slide-container').css('margin-left', `${range}px`);
+    }
+})
+
+
+$('.slide-box').on('mouseup', function (e) {
+    downFlag = false;
+    $('.slide-container').css('margin-left', `0`);
+    if (initial - e.clientX > 200) {
+        $('.slide-container').css('transition', '0.5s all');
+        $('.slide-container').css('transform', `translateX(${-((now_slide + 1) * 33.33)}%)`);
+        now_slide += 1;
+    }
+    else if (initial - e.clientX < -200) {
+        $('.slide-container').css('transition', '0.5s all');
+        $('.slide-container').css('transform', `translateX(${-((now_slide - 1) * 33.33)}%)`);
+        now_slide -= 1;
+    }
+    else {
+        $('.slide-container').css('transition', '0.5s all');
+        $('.slide-container').css('transform', `translateX(${-(now_slide * 33.33)}%)`);
+    }
+
+    setTimeout(() => {
+        $('.slide-container').css('transition', 'none');
+    }, 500);
+})
+

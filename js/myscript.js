@@ -50,17 +50,17 @@ $('.black-bg').on('click', function (e) {
 //////////////////////////////
 
 
-const 화면높이 = document.querySelector('html').scrollHeight - document.querySelector('html').clientHeight;
+const 화면높이 = document.querySelector('html').scrollHeight - document.querySelector('html').clientHeight - 70;
 
 $(window).on('scroll', function () {
     let 현재높이 = $('html').scrollTop();
     let line = 현재높이 / 화면높이 * 100;
     $('.scroll-line').css('width', line + '%')
     if ($(window).scrollTop()) {
-        $('.navbar').css('position', 'fixed');
+        $('.fixed-navbar').css('position', 'fixed');
     }
     else {
-        $('.navbar').css('position', 'relative');
+        $('.fixed-navbar').css('position', 'relative');
     }
 })
 

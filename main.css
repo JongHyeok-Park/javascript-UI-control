@@ -4,6 +4,11 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.fixed-navbar {
+    z-index: 4;
+    width: 100%;
+}
+
 .navbar {
     width: 100%;
     z-index: 4;
@@ -115,7 +120,7 @@
 }
 
 .scroll-line {
-    height: 0.5px;
+    height: 1px;
     background-color: black;
     transition: all 0.1s;
 }

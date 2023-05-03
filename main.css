@@ -91,10 +91,13 @@
     top: 0%;
     z-index: 10;
     width: 100%;
+    display: none;
 }
 
 .alert {
     margin: 10px;
+    background-color: rgb(255, 100, 80);
+    color: white;
 }
 
 .slide-button-container {
@@ -121,6 +124,11 @@
 
 .scroll-line {
     height: 1px;
+    width: 0px;
     background-color: black;
     transition: all 0.1s;
+}
+
+button {
+    border: solid 0.1px #aaa;
 }

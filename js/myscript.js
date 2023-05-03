@@ -66,7 +66,7 @@ $(window).on('scroll', function () {
 
 $(window).on('scroll', function () {
     if ($(window).scrollTop() > 100) {
-        $('.navbar-brand').css('font-size', '15px');
+        $('.navbar-brand').css('font-size', '20px');
     } else {
         $('.navbar-brand').css('font-size', '25px');
     }
@@ -103,16 +103,16 @@ $('.navbar-toggler').on('click', function () {
 })
 
 var count = 5
-setInterval(timer, 300)
+// setInterval(timer, 300)
 
-function timer() {
-    count -= 1;
-    $('#count').html(count);
-    if (count == 0) {
-        $('.alert-container').fadeOut();
-        clearInterval(this);
-    }
-}
+// function timer() {
+//     count -= 1;
+//     $('#count').html(count);
+//     if (count == 0) {
+//         $('.alert-container').fadeOut();
+//         clearInterval(this);
+//     }
+// }
 
 let now_slide = 0;
 
@@ -165,13 +165,22 @@ $('.slide-box').on('mouseup', function (e) {
     $('.slide-container').css('margin-left', `0`);
     if (initial - e.clientX > 200) {
         $('.slide-container').css('transition', '0.5s all');
-        $('.slide-container').css('transform', `translateX(${-((now_slide + 1) * 33.33)}%)`);
-        now_slide += 1;
+        if (now_slide >= 2) {
+            $('.slide-container').css('transform', `translateX(${-(now_slide * 33.33)}%)`);
+        } else {
+            $('.slide-container').css('transform', `translateX(${-((now_slide + 1) * 33.33)}%)`);
+            now_slide += 1;
+        }
     }
     else if (initial - e.clientX < -200) {
         $('.slide-container').css('transition', '0.5s all');
-        $('.slide-container').css('transform', `translateX(${-((now_slide - 1) * 33.33)}%)`);
-        now_slide -= 1;
+        if (now_slide <= 0) {
+            $('.slide-container').css('transform', `translateX(${-(now_slide * 33.33)}%)`);
+        }
+        else {
+            $('.slide-container').css('transform', `translateX(${-((now_slide - 1) * 33.33)}%)`);
+            now_slide -= 1;
+        }
     }
     else {
         $('.slide-container').css('transition', '0.5s all');
@@ -182,4 +191,35 @@ $('.slide-box').on('mouseup', function (e) {
         $('.slide-container').css('transition', 'none');
     }, 500);
 })
+
+let buttonType = ['wife', 'parents', 'dog'];
+
+document.querySelector('#quiz').addEventListener('click', function (e) {
+    switch (e.target.innerHTML) {
+        case '와이프':
+            showShort('애처가시네요.');
+            break;
+        case '부모님':
+            showShort('효자시네요.');
+            break;
+        case '키우던 개':
+            showShort('개를 좋아하시네요.');
+            break;
+
+        default:
+            break;
+    }
+})
+
+function showShort(customString) {
+    document.querySelector('.alert').innerHTML = customString;
+    $('.alert-container').fadeIn();
+
+    setTimeout(function () {
+        $('.alert-container').fadeOut();
+    }, 1000);
+
+};
+
+
 

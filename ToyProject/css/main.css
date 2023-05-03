@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #eee;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-container {
+    margin: 0;
+    background-color: #333;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    margin: 10px;
+    color: white;
+    display: flex;
+
+}
+
+.navbar * {
+    margin: 0;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.menus li {
+    list-style: none;
+    display: inline;
+    margin-left: 20px;
+}
+
+.menus {
+    padding: 0;
+    margin: 10px;
+}
+
+.card-container {
+    width: 25%;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card * {
+
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    display: block;
+}
+
+.card button {
+    color: white;
+    background-color: #222;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 16px;
+}
+
+.cart-container {
+    width: 100%;
+    background-color: #ccc;
+}
+
+.cart {
+    width: 90%;
+    background-color: black;
+    color: white;
+    margin: auto;
+}

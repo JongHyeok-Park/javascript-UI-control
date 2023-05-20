@@ -6,16 +6,16 @@ $('form').on('submit', function (e) {
     var name = $('#name').val();
     var password = $('#pw').val();
     if (name == '') {
-        alert('새끼... 기열!');
+        alert('아이디 적으세요.');
         e.preventDefault();
     } else if (/[A-Z]/.test(name)) {
-        alert('대문자 금지!!');
+        alert('대문자 쓰지 마세요.');
         e.preventDefault();
     } else if (password == '') {
-        alert('새끼... 비번은? 기열!!!!!');
+        alert('비번 적으세요.');
         e.preventDefault();
     } else {
-        alert('안 해줌 ㅋ');
+        alert('미완성이라 로그인 안 됩니다.');
         e.preventDefault();
     }
 })
